@@ -1,6 +1,3 @@
-[user]
-  name = Julio Arias
-  email = jarias01@gmail.com
 [alias]
   undo = reset --soft HEAD^
   ammend = commit --amend -C HEAD

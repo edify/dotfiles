@@ -1,4 +1,4 @@
-My (jarias) default dotfiles!
+Edify's dotfiles
 
 Use [homesick](https://github.com/technicalpickles/homesick) to install
 

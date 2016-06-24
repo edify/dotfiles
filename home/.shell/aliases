@@ -5,7 +5,6 @@ function dc() {
 function dci() {
     docker rmi $(docker images -f "dangling=true" -q)
 }
-alias b2d="boot2docker"
 
 # Git Smart
 alias gup="git smart-pull"

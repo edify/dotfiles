@@ -2,9 +2,13 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme molokai
+colorscheme base16-tomorrow
+set background=dark
 set guifont=Inconsolata-dz\ for\ Powerline:h14
 set laststatus=2
+set clipboard=unnamedplus
+
+let base16colorspace=256
 
 ""
 "" Basic Setup
@@ -50,11 +54,15 @@ au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 " GO
 au BufNewFile,BufRead,BufEnter *.go setlocal noet ts=4 sw=4 sts=4
 
+au BufNewFile,BufRead *.recipe set ft=xml
+
 " Javascript
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead .jshintrc,jshintrc set ft=javascript
-au FileType javascript setlocal ts=4 sw=4 sts=4
+au FileType javascript setlocal ts=2 sw=2 sts=2
 au FileType javascript noremap <buffer> <D-L> :call JsBeautify()<cr>
+au bufwritepost *.js silent !standard-format -w %
+set autoread
 
 " HTML
 au FileType html setlocal ts=4 sw=4 sts=4
@@ -77,16 +85,15 @@ autocmd vimenter * if !argc() | NERDTree | endif
 let NERDTreeHijackNetrw = 0
 
 let g:go_disable_autoinstall = 1
+let g:go_fmt_command = "goimports"
+
+let g:neocomplete#enable_at_startup = 1
 
 " format the entire file
 nmap <leader>fef :normal! gg=G``<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](tmp|build|node_modules|target|dist|bower_components)|(\.(tmp|swp|ico|git|svn))$'
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " TagBar
 nmap <leader>m :TagbarToggle<CR>
@@ -117,3 +124,12 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:syntastic_javascript_checkers = ['standard']

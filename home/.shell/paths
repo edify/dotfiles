@@ -10,5 +10,5 @@ if [ $(uname -s) = "Darwin" ]; then
 fi
 
 if [ $(uname -s) = "Linux" ]; then
-	export PATH=$PATH:$(ruby -e "print Gem.user_dir")/bin:$HOME/.local/bin:/usr/local/go/bin:$HOME/.npm-packages/bin:$GOPATH/bin:$HOME/.bin
+	export PATH=$PATH:$(ruby -e "print Gem.user_dir")/bin:$HOME/.local/bin:$HOME/.npm-packages/bin:$GOPATH/bin:$HOME/.bin
 fi

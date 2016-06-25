@@ -13,17 +13,10 @@ compdef _g g
 eval "$(direnv hook zsh)"
 
 if [ $(uname -s) = "Linux" ]; then
-  /usr/bin/keychain --quiet $HOME/.ssh/id_rsa
-  source $HOME/.keychain/$HOST-sh
+  #/usr/bin/keychain --quiet $HOME/.ssh/id_rsa
+  #source $HOME/.keychain/$HOST-sh
   eval $(dircolors ~/.dircolors)
 
   BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-fi
-
-if [ $(uname -s) = "Darwin" ]; then
-  export DOCKER_TLS_VERIFY="1"
-  export DOCKER_HOST="tcp://192.168.31.129:2376"
-  export DOCKER_CERT_PATH="/Users/jarias/.docker/machine/machines/default"
-  export DOCKER_MACHINE_NAME="default"
 fi

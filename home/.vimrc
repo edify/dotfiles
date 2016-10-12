@@ -2,13 +2,15 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme base16-tomorrow
 set background=dark
 set guifont=Inconsolata-dz\ for\ Powerline:h14
 set laststatus=2
 set clipboard=unnamedplus
 
-let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 ""
 "" Basic Setup

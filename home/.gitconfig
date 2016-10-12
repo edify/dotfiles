@@ -31,7 +31,7 @@
   ui = true
 [core]
   excludesfile = ~/.global-gitignore
-  editor = subl -n -w
+  editor = vim
   autocrlf = input
 [apply]
   whitespace = nowarn

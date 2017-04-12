@@ -1,4 +1,4 @@
-Edify's dotfiles
+Edify's minimal dotfiles
 
 Use [homesick](https://github.com/technicalpickles/homesick) to install
 
